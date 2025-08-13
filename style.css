@@ -228,3 +228,44 @@ footer {
   text-align: center;
   padding: 15px;
 }
+/* ===== DARK MODE ===== */
+body.dark-mode {
+  background-color: #222;
+  color: white;
+}
+
+body.dark-mode .navbar {
+  background-color: #111;
+}
+
+body.dark-mode a {
+  color: yellow;
+}
+
+/* ===== BUTTON DARK MODE ===== */
+.btn-darkmode {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ff6347;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ===== BUTTON SCROLL TOP ===== */
+.btn-scrolltop {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  background: #ff6347;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
