@@ -70,6 +70,28 @@ function loadComments() {
     commentList.appendChild(card);
   });
 }
+// === DARK MODE ===
+const darkModeToggle = document.getElementById("darkModeToggle");
+darkModeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  darkModeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀" : "🌙";
+});
+
+// === SCROLL TO TOP ===
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    scrollTopBtn.style.display = "block";
+  } else {
+    scrollTopBtn.style.display = "none";
+  }
+});
+
+scrollTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
 
 // Simpan komentar ke localStorage
 commentForm.addEventListener("submit", (e) => {
