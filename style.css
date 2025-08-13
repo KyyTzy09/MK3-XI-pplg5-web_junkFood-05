@@ -142,7 +142,9 @@ header {
 }
 .menu-card img {
   width: 100%;
+  height: 130px;
   border-radius: 8px;
+  object-fit:cover ;
 }
 .menu-card h3 {
   margin: 15px 0 5px;
