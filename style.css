@@ -221,6 +221,60 @@ header {
   color: #e85d04;
 }
 
+/* Modal Pemesanan */
+.order-modal {
+  display: none; /* hidden default */
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.order-modal-content {
+  background: #fffaf0;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #e85d04;
+}
+
+#order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#order-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#order-form button {
+  background-color: #ffb703;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#order-form button:hover {
+  background-color: #e85d04;
+}
+
 /* Footer */
 footer {
   background: #e85d04;
