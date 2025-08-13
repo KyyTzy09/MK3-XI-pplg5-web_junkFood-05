@@ -3,41 +3,49 @@ const menuItems = [
   {
     name: "Burger Keju",
     desc: "Burger daging sapi dengan keju leleh dan saus spesial.",
+    price: 25000,
     img: "https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg",
   },
   {
     name: "Hotdog Jumbo",
     desc: "Hotdog sosis jumbo dengan topping saus tomat dan mustard.",
+    price: 20000,
     img: "https://img.freepik.com/premium-photo/hot-dog-with-grilled-sausage-tomato-lettuce-dark-background-american-hotdog-top-view-overhead_2829-21615.jpg",
   },
   {
     name: "Pizza Pepperoni",
     desc: "Pizza tipis renyah dengan topping pepperoni dan keju mozzarella.",
+    price : 30000 ,
     img: "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg",
   },
   {
     name: "Kentang Goreng",
     desc: "Kentang goreng renyah dengan taburan garam dan saus pilihan.",
+    price: 15000 ,
     img: "https://cdn.pixabay.com/photo/2020/03/28/14/51/french-fries-4977354_1280.jpg",
   },
   {
     name: "Fried Chicken Crispy",
     desc: "Ayam goreng tepung super renyah dengan bumbu gurih.",
+    price: 18000 ,
     img: "https://media.istockphoto.com/id/2182219891/id/foto/ayam-goreng-lengkuas-atau-ayam-goreng-lengkuas.jpg?s=612x612&w=0&k=20&c=MS272qSS1Cx5Uh6mIDiStnTPik4_V7mCUGYY-ANimJ4=",
   },
   {
     name: "Onion Rings",
     desc: "Cincin bawang goreng tepung garing dengan saus BBQ.",
+    price: 12000 ,
     img: "https://cdn.pixabay.com/photo/2018/09/11/16/16/food-3669928_1280.jpg",
   },
   {
     name: "Taco Beef",
     desc: "Taco isi daging sapi cincang, selada, tomat, dan saus salsa.",
+    price: 22000 ,
     img: "https://cdn.pixabay.com/photo/2015/11/02/20/27/taco-1018962_1280.jpg",
   },
   {
     name: "Cheese Nachos",
     desc: "Nachos renyah dengan lelehan keju dan potongan jalapeño.",
+    price: 28000 ,
     img: "https://www.seriouseats.com/thmb/YBUAG17xy1nWYGPmFcJKeoODTzk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cheese-sauce-for-cheese-fries-and-nachos-hero-01-e6ccf966688c43ec8025cf9a19678423.jpg",
   },
 ];
@@ -93,6 +101,7 @@ menuItems.forEach(item => {
     <img src="${item.img}" alt="${item.name}">
     <h3>${item.name}</h3>
     <p>${item.desc}</p>
+    <h4>RP ${item.price}</h4>
     <button class="btn order-btn" data-item="${item.name}">Pesan</button>
   `;
   menuContainer.appendChild(card);
@@ -128,12 +137,18 @@ window.addEventListener("click", (e) => {
 orderForm.addEventListener("submit", e => {
   e.preventDefault();
   const name = document.getElementById("order-name").value;
-  const qty = document.getElementById("order-qty").value;
+  const qty = parseInt(document.getElementById("order-qty").value);
   const address = document.getElementById("order-address").value;
+
+  // Cari item yang dipilih dari array menuItems
+  const itemData = menuItems.find(item => item.name === selectedItem);
+  const totalPrice = itemData ? itemData.price * qty : 0;
 
   const message = `Halo, saya ingin memesan:
 - Menu: ${selectedItem}
+- Harga Satuan: Rp ${itemData.price.toLocaleString()}
 - Jumlah: ${qty}
+- Total Harga: Rp ${totalPrice.toLocaleString()}
 - Nama: ${name}
 - Alamat: ${address}`;
 
